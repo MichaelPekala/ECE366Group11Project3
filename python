@@ -1,0 +1,39 @@
+
+
+opcode = 0b11101
+
+if opcode == 0b00000:                               # halt 
+    print('halt')
+    
+if opcode == 0b00001:                               # lw 
+    print('lw')
+    
+if opcode == 0b00010 or opcode == 0b00011:          # bgtR1 
+    print('bgtR1')
+
+if opcode >= 0b00100 and opcode <= 0b00111:         # sw
+    print('sw')
+
+if opcode == 0b01000 or opcode == 0b01001:          # sub
+    print('sub')
+
+if opcode == 0b01010:                               # shiftL 
+    print('shiftL')
+
+if opcode == 0b01011:                               # shiftR 
+    print('shiftR')
+    
+if opcode >= 0b01100 and opcode <= 0b01111:         # init 
+    print('init')
+    
+if opcode == 0b10000 or opcode == 0b10001:          # add 
+    print('add')
+
+if opcode == 0b10010 or opcode == 0b10011:          # bltR1 
+    print('bltR1')
+
+if opcode >= 0b10100 and opcode <= 0b10111:         # addi 
+    print('addi')
+
+if opcode >= 0b11000 and opcode <= 0b11111:         # j 
+    print('j')
