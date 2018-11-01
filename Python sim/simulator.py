@@ -1,5 +1,5 @@
 input_file = open("ISA_machine_code.txt", "r")
-output_file = open("ISA_simulator_memory.txt","w")
+output_file = open("ISA_simulator_Mem_output.txt","w")
 
 instList = []
 count = 0
@@ -15,7 +15,7 @@ for code in input_file:
     
 input_file.close()
 
-input_file = open("PatternA.txt", "r")
+input_file = open("Memory.txt", "r")
 memList = []
 count = 0
 for code in input_file:
@@ -142,7 +142,18 @@ for foo in range(len(instList)):
 for j in memList:
     j = format(j, '016b')
     output_file.write(j + '\n')
-
+    
+output_stats = open("ISA_simulator_Stats_file.txt","w")
+r[0] = repr(r[0])
+r[1] = repr(r[1])
+r[2] = repr(r[2])
+r[3] = repr(r[3])
+output_stats.write("r0 = " + r[0] + '\n')
+output_stats.write("r1 = " + r[1] + '\n')
+output_stats.write("r2 = " + r[2] + '\n')
+output_stats.write("r3 = " + r[3] + '\n')
+output_stats.write("DIC count = " + repr(count) + '\n')
+output_stats.close()   
 print("Final DIC count is: {}".format(count))
 input_file.close()
 output_file.close()
