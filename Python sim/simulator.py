@@ -1,5 +1,5 @@
-input_file = open("ISA_machine_code.txt", "r")
-output_file = open("ISA_simulator_Mem_output.txt","w")
+input_file = open("i_mem.txt", "r")
+output_file = open("d_mem_output.txt","w")
 
 instList = []
 count = 0
@@ -15,7 +15,7 @@ for code in input_file:
     
 input_file.close()
 
-input_file = open("Memory.txt", "r")
+input_file = open("d_mem.txt", "r")
 memList = []
 count = 0
 for code in input_file:
@@ -143,7 +143,7 @@ for j in memList:
     j = format(j, '016b')
     output_file.write(j + '\n')
     
-output_stats = open("ISA_simulator_Stats_file.txt","w")
+output_stats = open("stat_mem.txt","w")
 r[0] = repr(r[0])
 r[1] = repr(r[1])
 r[2] = repr(r[2])
