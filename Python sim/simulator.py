@@ -30,7 +30,7 @@ for code in input_file:
 input_file.close()
 r = [0,0,0,0]
 pc = 0
-for foo in range(len(instList)):
+for pc in range(len(instList)):
     line = instList[pc]
     #lw
     if(line[0:5] == '00001'):
@@ -40,27 +40,32 @@ for foo in range(len(instList)):
             y = r[2]
         x = int(line[5],2)
         r[x] = memList[y]
+        pc = pc + 1
                 
        #sw
     elif(line[0:3] == '001'): 
         imm = int(line[4:7], 2)
         memList[imm] = r[int(line[3],2)] #line[3] is Rx
+        pc = pc + 1
        
         #init
     elif(line[0:3] == '011'):
         x = int(line[3:5], 2)
         imm = int(line[5:7], 2)
         r[x] = imm
+        pc = pc + 1
 
     #shiftL
     elif(line[0:5] == '01010'):
         x = int(line[5:7], 2)
         r[x] = r[x]*2
+        pc = pc + 1
 
    #shiftR
     elif(line[0:5] == '01011'):
         x = int(line[5:7], 2)
         r[x] = r[x]*2
+        pc = pc + 1
         
     #sub
     elif(line[0:4] == '0100'):
@@ -70,6 +75,7 @@ for foo in range(len(instList)):
         elif(line[6] == '1'):
             y = r[2]
         r[x] = r[x] - y
+        pc = pc + 1
 
     #addi
     elif(line[0:3] == '101'):
@@ -83,6 +89,7 @@ for foo in range(len(instList)):
         elif(line[5:7] == '01'):
             y = 1
         r[x] = r[x] + y
+        pc = pc + 1
         
     #add
     elif(line[0:4] == '1000'):
@@ -92,6 +99,7 @@ for foo in range(len(instList)):
         else:
             y = r[2]
         r[x] = r[x] + y
+        pc = pc + 1
 
         #jump
     elif(line[0:2] == '11'):
@@ -136,7 +144,7 @@ for foo in range(len(instList)):
         
     else:
         print("Unknown instruction:"+ line)
-    pc = pc + 1
+        break;
     count = count + 1
 
 for j in memList:
