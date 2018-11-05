@@ -30,7 +30,8 @@ for code in input_file:
 input_file.close()
 r = [0,0,0,0]
 pc = 0
-for pc in range(len(instList)):
+#for pc in range(0,len(instList)):
+while(pc < len(instList)):
     line = instList[pc]
     #lw
     if(line[0:5] == '00001'):
@@ -103,43 +104,48 @@ for pc in range(len(instList)):
 
         #jump
     elif(line[0:2] == '11'):
-        imm = repr(int(line[2:7], 2))
+        imm = int(line[2:7], 2)
         #pc= pc + 1
+        temp = pc
         pc = imm
+        if(pc == temp):
+            break
         
     #bgtR0
     elif(line[0:4] == '0001'):
+        pc = pc + 1
         if(line[4] == '0'): 
             x = r[1]
         elif(line[4] == '1'):
             x = r[2]
         if(line[5:7] == '00'):
-            y = 1
+            imm = 1
         elif(line[5:7] == '01'):
-            y = 2
+            imm = 2
         elif(line[5:7] == '10'):
-            y = 3
+            imm = 3
         elif(line[5:7] == '11'):
-            y = 4
-        if (x > 0):
+            imm = 4
+        if (x > r[0]):
             pc = pc + imm
         
     #bltR0
     elif(line[0:4] == '1001'):
+        pc = pc + 1
         if(line[4] == '0'): 
             x = r[1]
         elif(line[4] == '1'):
             x = r[2]
             
         if(line[5:7] == '00'):
-            y = 1
+            imm = 1
         elif(line[5:7] == '01'):
-            y = 2
+            imm = 2
         elif(line[5:7] == '10'):
-            y = 3
+            imm = 3
         elif(line[5:7] == '11'):
-            y = 4
-        if (x < 0):
+            imm = 4
+        if (x < r[0]):
             pc = pc + imm
         
     else:
