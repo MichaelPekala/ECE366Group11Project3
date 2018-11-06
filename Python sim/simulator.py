@@ -113,7 +113,6 @@ while(pc < len(instList)):
         
     #bgtR0
     elif(line[0:4] == '0001'):
-        pc = pc + 1
         if(line[4] == '0'): 
             x = r[1]
         elif(line[4] == '1'):
@@ -128,10 +127,11 @@ while(pc < len(instList)):
             imm = 4
         if (x > r[0]):
             pc = pc + imm
+        else:
+            pc = pc + 1
         
     #bltR0
     elif(line[0:4] == '1001'):
-        pc = pc + 1
         if(line[4] == '0'): 
             x = r[1]
         elif(line[4] == '1'):
@@ -147,6 +147,8 @@ while(pc < len(instList)):
             imm = 4
         if (x < r[0]):
             pc = pc + imm
+        else:
+            pc = pc + 1
         
     else:
         print("Unknown instruction:"+ line)
