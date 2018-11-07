@@ -1,0 +1,14 @@
+Needed:
+
+pdf of project report broken down:
+
+ISA intro				-done
+answers to questions			-done
+simulation results			
+ISA package				
+
+
+4 txt documents of data memory pattern results (A,B,C,D)
+
+official finalized machine code .txts
+
