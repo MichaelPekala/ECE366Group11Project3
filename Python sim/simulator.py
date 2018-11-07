@@ -65,7 +65,7 @@ while(pc < len(instList)):
    #shiftR
     elif(line[0:5] == '01011'):
         x = int(line[5:7], 2)
-        r[x] = r[x]*2
+        r[x] = int(r[x]/2)
         pc = pc + 1
         
     #sub
