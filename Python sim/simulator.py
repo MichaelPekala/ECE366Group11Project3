@@ -62,12 +62,10 @@ while(pc < len(instList)):
         r[x] = r[x]*2
         pc = pc + 1
 
-   #shiftR
+   #incMem
     elif(line[0:5] == '01011'):
-        #x = int(line[5:7], 2)
-        #r[x] = int(r[x]/2)
-        #pc = pc + 1
-        memList[6] = memList[6] + 1
+        pc = pc + 1
+        memList[5] = memList[5] + 1
         
         
     #sub
