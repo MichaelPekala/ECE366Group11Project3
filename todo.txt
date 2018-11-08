@@ -9,6 +9,7 @@ ISA package
 
 
 4 txt documents of data memory pattern results (A,B,C,D)
+						-done for program 2
 
-official finalized machine code .txts
+official finalized machine code .txts	-program 2 done
 
